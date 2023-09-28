@@ -7,8 +7,8 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["Sageflick/Sageflick.csproj", "Sageflick/"]
-RUN dotnet restore "Sageflick/Sageflick.csproj"
+COPY ["Sageflick.csproj", "/"]
+RUN dotnet restore "Sageflick.csproj"
 COPY . .
 WORKDIR "/src/Sageflick"
 RUN dotnet build "Sageflick.csproj" -c Release -o /app/build
